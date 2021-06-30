@@ -36,3 +36,5 @@ but in function or array or obj(not primitive) not the same in JS
 // function is object in JS so 
 (props.onClick === props.previous.onClick-->false so here is a change in props)
 */
+//Dose that mean memo not worth it when i use obj,arr,fun ?
+// NO in 06-usecallback the ansower
