@@ -1,3 +1,7 @@
+// its pad that every time app re evaluate their children re evaluate when they dont have any chane
+//becuase this will cost the differ cherker(vitrual comparasing) so i need to manege that
+//so i can tell it to run the childern comp when state/props/context changr on them
+
 import React, { useState, useCallback } from 'react';
 
 import Button from './components/UI/Button/Button';
