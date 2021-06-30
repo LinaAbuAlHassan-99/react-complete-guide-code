@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-import Button from './components/UI/Button/Button';
-import './App.css';
+import Button from "./components/UI/Button/Button";
+import "./App.css";
 // to re evaluate i need change in props||context||state
+
 function App() {
 
-  const check='hi';
   const [showParagraph, setShowParagraph] = useState(false);
-
-  console.log('APP RUNNING');
+  // just to check that wher ever the stat change wil re execute
+  console.log("APP RUNNING"); // wher ever the stat change shulld exeute //
 
   const toggleParagraphHandler = () => {
     setShowParagraph((prevShowParagraph) => !prevShowParagraph);
