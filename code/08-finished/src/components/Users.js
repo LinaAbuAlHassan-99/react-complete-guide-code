@@ -13,13 +13,20 @@ class Users extends Component {
   }
 
   componentDidUpdate() {
-    // try {
-    //   someCodeWhichMightFail()
-    // } catch (err) {
-    //   // handle error
-    // }
+
+    //this how i handel error in js
+/*
+    try {
+      someCodeWhichMightFail()
+    } catch (err) {
+      // handle error
+    }
+
+    // i can use this method here but if i want to handel the error in some way else
+    this will cant help me  i need error boundary
+*/
     if (this.props.users.length === 0) {
-      throw new Error('No users provided!');
+      throw new Error('No users provided!'); // genarete error and passe it to stack(so pased throw componant(will be runed)) if now one handelit will crash my app
     }
   }
 

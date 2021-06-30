@@ -34,8 +34,21 @@ class UserFinder extends Component {
   searchChangeHandler(event) {
     this.setState({ searchTerm: event.target.value });
   }
+//<Users users={this.state.filteredUsers} /> here whre where the error genareted and its not js code so i cant wrap it with try and catch 
+/* This will not work 
 
-  render() {
+try{
+<Fragment>
+<div className={classes.finder}>
+  <input type='search' onChange={this.searchChangeHandler.bind(this)} />
+</div>
+<ErrorBoundary>
+  <Users users={this.state.filteredUsers} />
+</ErrorBoundary>
+</Fragment>}
+catch{}
+*/
+render() {
     return (
       <Fragment>
         <div className={classes.finder}>
