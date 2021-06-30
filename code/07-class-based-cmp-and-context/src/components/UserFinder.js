@@ -5,7 +5,9 @@ import classes from './UserFinder.module.css';
 import UsersContext from '../store/users-context';
 
 class UserFinder extends Component {
-  static contextType = UsersContext;
+  // i want to get my data from context
+  // contextType -> proparity
+  static contextType = UsersContext;// only for one context if i need more than one i need some thing else he did not mintion it
 
   constructor() {
     super();
@@ -17,6 +19,7 @@ class UserFinder extends Component {
 
   componentDidMount() {
     // Send http request...
+    // here i use context where ever i need users
     this.setState({ filteredUsers: this.context.users });
   }
 
@@ -33,10 +36,16 @@ class UserFinder extends Component {
   searchChangeHandler(event) {
     this.setState({ searchTerm: event.target.value });
   }
-
+ // the first way to use context is inside fragment i but this
+ /*
+ <UserContwxt.consumer>
+ ...
+ </UserContwxt.consumer>
+  */
   render() {
     return (
       <Fragment>
+      
         <div className={classes.finder}>
           <input type='search' onChange={this.searchChangeHandler.bind(this)} />
         </div>
