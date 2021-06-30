@@ -12,7 +12,10 @@ function App() {
   const toggleParagraphHandler = () => {
     setShowParagraph((prevShowParagraph) => !prevShowParagraph);
   };
-
+  //the actual change happend in DemoOutput but the app com will run again becuse here we manege the state
+  // will alwayse render but the text depend on click so its just the p will change so its just update not re render every thing
+ //  <DemoOutput show={showParagraph} />
+ // the props.show(show come from showParagraph so in app i change the state)
   return (
     <div className="app">
       <h1>Hi there!</h1>
