@@ -3,6 +3,7 @@ import TaskForm from './TaskForm';
 import useHttp from '../../hooks/use-http';
 
 const NewTask = (props) => {
+  //use coustom hoc
   const { isLoading, error, sendRequest: sendTaskRequest } = useHttp();
 
   const createTask = (taskText, taskData) => {
@@ -11,7 +12,7 @@ const NewTask = (props) => {
 
     props.onAddTask(createdTask);
   };
-
+// sendTaskRequest we not use it in useeffect so no need for callback
   const enterTaskHandler = async (taskText) => {
     sendTaskRequest(
       {
@@ -22,7 +23,8 @@ const NewTask = (props) => {
         },
         body: { text: taskText },
       },
-      createTask.bind(null, taskText)
+      //bind -> allow us to pre configer the function  
+      createTask.bind(null, taskText)// becuse it pass just one data
     );
   };
 
