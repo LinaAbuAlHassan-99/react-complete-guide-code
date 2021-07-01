@@ -1,5 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
+/*
+i want get data from use it and store it in data base
+so i use api servese firebase 
+firebase is servese profide by google and i can use it without write any code
+go to console in the site not dev tool
+we will use a littel componant from firebase
+i need realtime DB here start in test mode 
+url to firebase api call DB
 
+ */
 import MoviesList from './components/MoviesList';
 import AddMovie from './components/AddMovie';
 import './App.css';
@@ -13,7 +22,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      const response = await fetch('https://react-http-6afaf-default-rtdb.asia-southeast1.firebasedatabase.app/movies.json');// change this with the url from fire base and add /movies.json -> use it to store data and need to be in json 
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
