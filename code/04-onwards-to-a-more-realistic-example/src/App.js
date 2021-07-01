@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
-
-import Tasks from './components/Tasks/Tasks';
-import NewTask from './components/NewTask/NewTask';
+import React, { useEffect, useState,useCallback } from "react";
+/* here ther is a shared logic with(NewTask) with some deferances so i need cousto hooks  */
+import useHttp from "./hooks/use-http";
+import Tasks from "./components/Tasks/Tasks";
+import NewTask from "./components/NewTask/NewTask";
 
 function App() {
+  /*
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]); // spasific fpr app compso not deldet it
 
   const fetchTasks = async (taskText) => {
     setIsLoading(true);
@@ -34,11 +36,28 @@ function App() {
     }
     setIsLoading(false);
   };
+*/
 
+  const [tasks, setTasks] = useState([]); // spasific fpr app compso not deldet it
+
+  const transformTasks = useCallback((taskObj) => {
+    const loadedTasks = [];
+
+    for (const taskKey in taskObj) {
+      loadedTasks.push({ id: taskKey, taskObj: data[taskKey].text });
+    }
+
+    setTasks(loadedTasks);
+  },[]);
+//change its name  sendRequest: fetchTasks
+  const {isLoading, error, sendRequest: fetchTasks} = useHttp(
+    transformTasks
+  );
+
+// or other method on file 6
   useEffect(() => {
-    fetchTasks();
-  }, []);
-
+    fetchTasks({ url: "https://react-http-6b4a6.firebaseio.com/tasks.json" } )}, [fetchTasks]); // this will create infinite loop becuse the state re set with this state so the como re render
+// so i need to wrap use-http.js with call back 
   const taskAddHandler = (task) => {
     setTasks((prevTasks) => prevTasks.concat(task));
   };

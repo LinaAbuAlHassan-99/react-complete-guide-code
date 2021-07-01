@@ -1,15 +1,16 @@
 import { useState } from 'react';
-
+/* insert data */
 import Section from '../UI/Section';
 import TaskForm from './TaskForm';
-
+// alown // mean the same thing shared
+/* here ther is a shared logic with(App) with some deferances so i need cousto hooks  */
 const NewTask = (props) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);//
+  const [error, setError] = useState(null);//
 
   const enterTaskHandler = async (taskText) => {
-    setIsLoading(true);
-    setError(null);
+    setIsLoading(true);//
+    setError(null);//
     try {
       const response = await fetch(
         'https://react-http-6b4a6.firebaseio.com/tasks.json',
@@ -21,8 +22,8 @@ const NewTask = (props) => {
           },
         }
       );
-
-      if (!response.ok) {
+//error handling 
+      if (!response.ok) {//
         throw new Error('Request failed!');
       }
 
