@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
-
+/*
+I want to tacke data from user and the insert it to the data 
+so i need set not just get(fetch)
+ */
 import classes from './AddMovie.module.css';
 
 function AddMovie(props) {
