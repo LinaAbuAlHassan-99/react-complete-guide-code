@@ -6,6 +6,12 @@ if he did i wrong thing in our case delete the input(leaving empty)
  after he done and before click on submit i need to let him know the error
  he done
 */
+/* 
+//Key Strock
+when the user re touch the input and write a valid input i want the validation handel when it was erroer to disapper
+(if he enter a valid input then i need the error massege and styling disappere)
+*/
+
 const SimpleInput = (props) => {
   const nameInputRef = useRef();
   const [enteredName, setEnteredName] = useState('');
@@ -20,6 +26,14 @@ const SimpleInput = (props) => {
 
   const nameInputChangeHandler = (event) => {
     setEnteredName(event.target.value);
+    //(if he enter a valid input then i need the error massege and styling disappere)
+    // i need to use the updated statment so i can emditly know the change whitch is this ->event.target.value
+    //if (enteredName.trim() !== '') { // not this becuse in will not update emeditly it will be schaduale untel the comp re evaluate so i use this
+      // hew allow validation with every ketstrock
+    if (event.target.value.trim() !== '') {
+      setEnteredNameIsValid(true);
+      return;
+    }
   };
 
 /*
