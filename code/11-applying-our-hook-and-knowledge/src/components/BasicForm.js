@@ -1,5 +1,5 @@
 import useInput from '../hooks/use-input';
-
+// this function not need to e buld if comp re evaluate so i but them out side the comp
 const isNotEmpty = (value) => value.trim() !== '';
 const isEmail = (value) => value.includes('@');
 
