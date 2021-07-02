@@ -1,5 +1,7 @@
 import { useState } from 'react';
-
+/*
+here i check validation for more than one input 
+*/ 
 const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState('');
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
