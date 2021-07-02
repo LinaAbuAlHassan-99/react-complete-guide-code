@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-
+/* formic library i needto search about it becuse its for forms */
 const initialInputState = {
   value: '',
   isTouched: false,
