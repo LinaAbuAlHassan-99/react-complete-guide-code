@@ -1,9 +1,12 @@
-import SimpleInput from './components/SimpleInput';
+//Chalenge to use the validation in more than one input
+//import SimpleInput from './components/SimpleInput';
+import BasicForm from './components/BasicForm';
 
 function App() {
   return (
+    //<SimpleInput />
     <div className="app">
-      <SimpleInput />
+      <BasicForm/>
     </div>
   );
 }
