@@ -1,5 +1,13 @@
 import { createStore } from 'redux';
+// there is some prolem 
+//1) the identifer may be have a typo mistak
+//2) the state object may be very big (if there is alot of state)
+//3) state imutability ( sure that not change the state no do the changing inside the return)
 
+//SOLUTION
+//1) also import it in Counter.js
+const INCREMENT ='increment';// and in counter use this identefier
+//there is a lot of solution but i dont need to to this any more i need toolkit in secont directory i use it
 const initialState = { counter: 0, showCounter: true };
 /*
 the object return from ower reducer
@@ -15,8 +23,8 @@ so that here i wrote every state in every return even if its not use it
     So we must put all state in return 
 */
 const counterReducer = (state = initialState, action) => {
-  
-  if (action.type === 'increment') {
+  //'increment' this is identifer
+  if (action.type === INCREMENT) {
 // why i dont do this so dont write the all state in return every time?
 // beacuse when we work with redux we should never mutate (change) the existing state 
 //insted over ride it by return new obj 
@@ -32,6 +40,7 @@ const counterReducer = (state = initialState, action) => {
   }
 
   if (action.type === 'increase') {
+    //state object
     return {
       counter: state.counter + action.amount,
       showCounter: state.showCounter,
