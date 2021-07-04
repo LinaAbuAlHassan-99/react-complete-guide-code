@@ -5,7 +5,7 @@ import classes from './Counter.module.css';
 const Counter = () => {
   const dispatch = useDispatch();
   const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
+  const show = useSelector((state) => state.showCounter);// always update and re render the copm when show is change
 
   const incrementHandler = () => {
     dispatch({ type: 'increment' });
@@ -18,10 +18,19 @@ const Counter = () => {
   const decrementHandler = () => {
     dispatch({ type: 'decrement' });
   };
-
+// to manage toggleCounterHandler i can use useState witch is the better
+/*
+ way becuse showing or hiding this componant
+  is only important for this componant so no 
+  need to do it in redux but here just to learn 
+  also to counter (beacuse we only use it in this comp)
+  */
   const toggleCounterHandler = () => {
     dispatch({ type: 'toggle' });
   };
+  
+  // if only true i want to show it
+  //{show && <div className={classes.value}>{counter}</div>}
 
   return (
     <main className={classes.counter}>
