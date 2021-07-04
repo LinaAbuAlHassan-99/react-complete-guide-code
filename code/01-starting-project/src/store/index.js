@@ -7,6 +7,21 @@ const counterReducer = (state = { counter: 0 }, action) => {
       counter: state.counter + 1,
     };
   }
+  //this not profitional way becuse i cant do this form alot of action or if the user want something i dont cover so i need better tecniqe
+  // insted mack the actio carry more data not just type so ===
+  // if (action.type === "incby5") {
+  //   return {
+  //     counter: state.counter + 5,
+  //   };
+  // }
+  //===
+  if (action.type === "increase") {
+      return {
+        //this is called Payloads
+        counter: state.counter + action.amount,
+      };
+    }
+
   if (action.type === "dec") {
     return {
       counter: state.counter - 1,
