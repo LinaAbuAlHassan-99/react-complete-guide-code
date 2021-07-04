@@ -5,7 +5,10 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch = useDispatch();
+  //i need to add the first counter to use counter inside reduser obj in configureStore
+  // and the second one to use the counter inside the initial state
   const counter = useSelector((state) => state.counter.counter);
+  // and this for auth
   const show = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
