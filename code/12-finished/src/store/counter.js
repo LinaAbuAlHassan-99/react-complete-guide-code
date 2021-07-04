@@ -21,6 +21,7 @@ const counterSlice = createSlice({
   },
 });
 
-export const counterActions = counterSlice.actions;
+export const counterActions = counterSlice.actions; //for dispatch
+// here i can import counterSlice but we dont needall we just nede reducer so i export. reducer in its file
 
 export default counterSlice.reducer;
