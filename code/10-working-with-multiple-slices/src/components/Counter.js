@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { counterActions } from '../store/index';
+import { counterActions } from '../store/index';// here i use actions
 import classes from './Counter.module.css';
 
 const Counter = () => {
@@ -13,11 +13,12 @@ const Counter = () => {
   };
 
   const increaseHandler = () => {
-    dispatch(counterActions.increase(10)); // { type: SOME_UNIQUE_IDENTIFIER, payload: 10 }
+    dispatch(counterActions.increase(10));// here i can pass the payload to action
+     // this what happend behing the seen by toolkit { type: SOME_UNIQUE_IDENTIFIER, payload: 10 }
   };
 
   const decrementHandler = () => {
-    dispatch(counterActions.decrement());
+    dispatch(counterActions.decrement());//here i can call the method i need // full action object creat for us (dispatch({type:'increment'}))
   };
 
   const toggleCounterHandler = () => {
