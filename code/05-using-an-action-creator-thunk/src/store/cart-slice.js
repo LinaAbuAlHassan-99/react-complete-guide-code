@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { uiActions } from './ui-slice';
+import { uiActions } from './ui-slice';//
 
 const cartSlice = createSlice({
   name: 'cart',
@@ -43,7 +43,12 @@ const cartSlice = createSlice({
   },
 });
 
+//stand lone js function
+// i write it out of slice 
+// our own action creater
 export const sendCartData = (cart) => {
+  //return onether function
+  //resive dispatch come from redux tool
   return async (dispatch) => {
     dispatch(
       uiActions.showNotification({
@@ -66,10 +71,10 @@ export const sendCartData = (cart) => {
         throw new Error('Sending cart data failed.');
       }
     };
-
+//handel error 
     try {
       await sendRequest();
-
+// if no error will dispatch it 
       dispatch(
         uiActions.showNotification({
           status: 'success',
@@ -88,7 +93,7 @@ export const sendCartData = (cart) => {
     }
   };
 };
-
+// how i call it and where///
 export const cartActions = cartSlice.actions;
 
 export default cartSlice;

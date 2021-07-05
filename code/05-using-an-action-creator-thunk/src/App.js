@@ -1,12 +1,14 @@
 import { Fragment, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+//show notification in 04 it auto generated action creater
 import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
 import { sendCartData } from './store/cart-slice';
-
+/*
+moving logic to coustom creat action its just more lein code rather than write it inside the comp as 04
+*/
 let isInitial = true;
 
 function App() {
@@ -20,8 +22,8 @@ function App() {
       isInitial = false;
       return;
     }
-
-    dispatch(sendCartData(cart));
+// how i call it and where///
+    dispatch(sendCartData(cart));//redux acsept action func nut just action obj
   }, [cart, dispatch]);
 
   return (
