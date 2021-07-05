@@ -1,7 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState: {
     items: [],
     totalQuantity: 0,
@@ -27,6 +27,7 @@ const cartSlice = createSlice({
         existingItem.quantity++;
         existingItem.totalPrice = existingItem.totalPrice + newItem.price;
       }
+      //fetch(we can't do this here becuse reduer function must be pure,sync,sideeffect free)
     },
     removeItemFromCart(state, action) {
       const id = action.payload;
