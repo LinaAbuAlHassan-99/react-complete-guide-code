@@ -5,9 +5,11 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalQuantity: 0,
-    changed: false,
+    changed: false,    // i need to do this so when i replace the cart the use effect not reevaluate
+
   },
   reducers: {
+     //replace the cart with the cart i fetch it from DB
     replaceCart(state, action) {
       state.totalQuantity = action.payload.totalQuantity;
       state.items = action.payload.items;
@@ -16,7 +18,7 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalQuantity++;
-      state.changed = true;
+      state.changed = true;//
       if (!existingItem) {
         state.items.push({
           id: newItem.id,
@@ -34,7 +36,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.totalQuantity--;
-      state.changed = true;
+      state.changed = true;//
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);
       } else {

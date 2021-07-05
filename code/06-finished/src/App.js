@@ -5,7 +5,7 @@ import Cart from './components/Cart/Cart';
 import Layout from './components/Layout/Layout';
 import Products from './components/Shop/Products';
 import Notification from './components/UI/Notification';
-import { sendCartData, fetchCartData } from './store/cart-actions';
+import { sendCartData, fetchCartData } from './store/cart-actions';//
 
 let isInitial = true;
 
@@ -16,7 +16,7 @@ function App() {
   const notification = useSelector((state) => state.ui.notification);
 
   useEffect(() => {
-    dispatch(fetchCartData());
+    dispatch(fetchCartData());// tetch the data
   }, [dispatch]);
 
   useEffect(() => {
@@ -24,7 +24,9 @@ function App() {
       isInitial = false;
       return;
     }
-
+    // will execute ehnever the cart chang but there is a proble that when done fetch the data we replace the data so changed inside redux so will re run the sendCartData to fix it i use->
+    //->
+// i check it here 
     if (cart.changed) {
       dispatch(sendCartData(cart));
     }
