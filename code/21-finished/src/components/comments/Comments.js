@@ -3,18 +3,18 @@ import { useParams } from 'react-router-dom';
 
 import classes from './Comments.module.css';
 import NewCommentForm from './NewCommentForm';
-import useHttp from '../../hooks/use-http';
-import { getAllComments } from '../../lib/api';
+import useHttp from '../../hooks/use-http';//
+import { getAllComments } from '../../lib/api';//
 import LoadingSpinner from '../UI/LoadingSpinner';
-import CommentsList from './CommentsList';
+import CommentsList from './CommentsList';//
 
 const Comments = () => {
   const [isAddingComment, setIsAddingComment] = useState(false);
-  const params = useParams();
+  const params = useParams();// i know i will use this comp where url hold this parameter
 
-  const { quoteId } = params;
-
-  const { sendRequest, status, data: loadedComments } = useHttp(getAllComments);
+  const { quoteId } = params; //if i use params.qoutid i need to pass param as depebdancy
+//error i added so if iwant to use it
+  const { sendRequest, status, data: loadedComments ,error} = useHttp(getAllComments);//
 
   useEffect(() => {
     sendRequest(quoteId);
@@ -23,12 +23,15 @@ const Comments = () => {
   const startAddCommentHandler = () => {
     setIsAddingComment(true);
   };
-
-  const addedCommentHandler = useCallback(() => {
-    sendRequest(quoteId);
+  
+// useCallback becuse addedCommentHandler is passesd and when it passed its dependancy put it there so i dont need to give here any dep 
+// and to avoid this function not recurating every time this comp re evaluate so end with infinte loop 
+const addedCommentHandler = useCallback(() => {
+    //fetch the commant for sprsafic id
+    sendRequest(quoteId);// when ever comment naed i want to add it
   }, [sendRequest, quoteId]);
 
-  let comments;
+  let comments;//
 
   if (status === 'pending') {
     comments = (
@@ -37,11 +40,11 @@ const Comments = () => {
       </div>
     );
   }
-
+//done fetching,and do having data
   if (status === 'completed' && loadedComments && loadedComments.length > 0) {
     comments = <CommentsList comments={loadedComments} />;
   }
-
+// we dont have comments and done loading
   if (
     status === 'completed' &&
     (!loadedComments || loadedComments.length === 0)
@@ -58,9 +61,9 @@ const Comments = () => {
         </button>
       )}
       {isAddingComment && (
-        <NewCommentForm
-          quoteId={quoteId}
-          onAddedComment={addedCommentHandler}
+        <NewCommentForm //
+          quoteId={quoteId}//
+          onAddedComment={addedCommentHandler}//
         />
       )}
       {comments}
