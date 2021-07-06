@@ -4,7 +4,7 @@ import Welcome from "./pages/Welcome";
 import Products from "./pages/Products";
 import MainHeader from "./components/MainHeader";
 import ProductDetail from "./pages/ProductDetail";
-
+//Dynamic route so depend on what i click i want the product page change
 function App() {
   return (
     <div>
@@ -16,8 +16,12 @@ function App() {
         <Route path="/products">
           <Products />
         </Route>
-      // to render it i can use this but becuse we have differant produc i want to load this page with differant data
-        /*<Route path="/product-detail">
+        // to render it i can use this but becuse we have differant produc i
+        want to load this page with differant data /*
+        <Route path="/product-detail/:productId">// we can have mor than one /:another sigmant
+          // dynamic path /: (any name i want) idintifer (sigmant) and i use it as a key
+          //our-domain.com/product/detail/any value (dynamic)
+          // what ever i write after / it will render in the page if i render it in the page <P>{params.productId}</P> like this in ProductDetail
           <ProductDetail />
         </Route>
         */

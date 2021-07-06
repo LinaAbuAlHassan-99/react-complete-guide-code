@@ -6,8 +6,8 @@ const Products = () => {
       <h1> The Products Page</h1>
       <ul>
         <li>A Book</li>//shoud be clickable so when i click this produc i have the detail about it so i need to defuine new page
-        <li></li>
-        <li>Product 3</li>
+        <li>A Carpet</li>
+        <li>An Online Course</li>
       </ul>
     </section>
   );
