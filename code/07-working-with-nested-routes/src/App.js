@@ -1,5 +1,5 @@
 import { Route, Switch } from 'react-router-dom';
-
+// work with nested route (inside the page i'd like to have route)
 import Welcome from './pages/Welcome';
 import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
