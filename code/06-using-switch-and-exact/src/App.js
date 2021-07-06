@@ -1,4 +1,4 @@
-import { Route, Switch } from 'react-router-dom';///this to not active all the all route at the same time 
+import { Route, Switch } from 'react-router-dom';/// switch this to not active all the all route at the same time 
 //just what i want to active
 
 import Welcome from './pages/Welcome';
