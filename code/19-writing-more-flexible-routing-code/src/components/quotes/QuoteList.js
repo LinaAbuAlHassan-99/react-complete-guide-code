@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';//
 
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
@@ -23,11 +23,12 @@ const QuoteList = (props) => {
   const isSortingAscending = queryParams.get('sort') === 'asc';
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
-
-  const changeSortingHandler = () => {
-    history.push({
-      pathname: location.pathname,
-      search: `?sort=${(isSortingAscending ? 'desc' : 'asc')}`
+//history.push(`${location.pathname}?sort=${isSortingAscending ? 'desc' : 'asc')}`)
+// or i can manage it obj and change the query  path 
+const changeSortingHandler = () => {
+    history.push({// pathname hold the path
+      pathname: location.pathname,//the path i want to navigate to for ex:/quots but here i want to stay in the samelocation so lication,pathname
+      search: `?sort=${(isSortingAscending ? 'desc' : 'asc')}`// search key 
     });
   };
 
