@@ -22,6 +22,9 @@ const DUMMY_MEETUPS = [
 function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
 }
+
+//Static Generation
+///this is more squre becuse will execute in server side not in cclient side
 //use effect execute the function after the comp renderfor the first time
 export async function getStaticProps() {
   // fetch data from an API
