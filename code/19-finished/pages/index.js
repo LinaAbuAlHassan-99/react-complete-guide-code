@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import Head from 'next/head';
+import Head from 'next/head';//add head and write title ,meta
 import { MongoClient } from 'mongodb';
 
 import MeetupList from '../components/meetups/MeetupList';
