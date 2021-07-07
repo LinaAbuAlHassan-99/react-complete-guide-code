@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from 'mongodb';
 
 import MeetupDetail from '../../components/meetups/MeetupDetail';
-
+//fetch data from data pase for meetups id i need spesefic data
 function MeetupDetails(props) {
   return (
     <MeetupDetail
@@ -20,7 +20,8 @@ export async function getStaticPaths() {
   const db = client.db();
 
   const meetupsCollection = db.collection('meetups');
-
+//find give me access to all the meetups, {}all object and i intersted in id so 1 just the id 
+//the obj just contain the id 
   const meetups = await meetupsCollection.find({}, { _id: 1 }).toArray();
 
   client.close();
@@ -28,7 +29,7 @@ export async function getStaticPaths() {
   return {
     fallback: false,
     paths: meetups.map((meetup) => ({
-      params: { meetupId: meetup._id.toString() },
+      params: { meetupId: meetup._id.toString() },//for spesific id i want spisific data
     })),
   };
 }
