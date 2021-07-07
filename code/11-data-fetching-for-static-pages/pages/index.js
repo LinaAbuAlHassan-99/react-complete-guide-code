@@ -22,7 +22,7 @@ const DUMMY_MEETUPS = [
 function HomePage(props) {
   return <MeetupList meetups={props.meetups} />;
 }
-
+//use effect execute the function after the comp renderfor the first time
 export async function getStaticProps() {
   // fetch data from an API
   return {
