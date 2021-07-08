@@ -3,6 +3,9 @@ import { createContext, useState } from "react";
 const FavoritesContext = createContext({
   favorites: [],
   totalFavorites: 0,
+  addFavorite: (favoriteMeetup) => {},
+  removeFavorite: (meetupId) => {},
+  itemIsFavorite: (meetupId) => {}
 });
 
 //comp will provide this context need this values, responceplr to update context value
@@ -26,10 +29,15 @@ function FavoritesContextProvider(props) {
   }
   //function itemIsFavoHandler(){} // to knoe if the item is favo or not
 
-  const context = {
-    favorites: userFavo,
-    totalFavorites: userFavo.length,
-  }; //this object will passes as value so i can update the values in createContext
+
+  // to other comp can update i need to pass the functions 
+const context = {
+  favorites: userFavorites,
+  totalFavorites: userFavorites.length,
+  addFavorite: addFavoriteHandler,
+  removeFavorite: removeFavoriteHandler,
+  itemIsFavorite: itemIsFavoriteHandler
+}; //this object will passes as value so i can update the values in createContext
 
   // wrap this provider around children so when i wrap any comp with this comp it can use the data
   return (
@@ -38,4 +46,4 @@ function FavoritesContextProvider(props) {
     </FavoritesContext.Provider>
   );
 }
-export default FavoritesContextProvider;
+export default FavoritesContext;

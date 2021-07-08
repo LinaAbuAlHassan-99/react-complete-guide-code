@@ -26,7 +26,7 @@ export function FavoritesContextProvider(props) {
   function itemIsFavoriteHandler(meetupId) {
     return userFavorites.some(meetup => meetup.id === meetupId);
   }
-
+// to other comp can update i need to pass the functions 
   const context = {
     favorites: userFavorites,
     totalFavorites: userFavorites.length,
