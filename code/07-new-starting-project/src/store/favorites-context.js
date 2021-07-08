@@ -9,7 +9,7 @@ const FavoritesContext = createContext({
 });
 
 //comp will provide this context need this values, responceplr to update context value
-function FavoritesContextProvider(props) {
+export function FavoritesContextProvider(props) {
   const [userFavo, setUserFave] = useState([]);
 
   function addFavoHandler(favoMeetup){
