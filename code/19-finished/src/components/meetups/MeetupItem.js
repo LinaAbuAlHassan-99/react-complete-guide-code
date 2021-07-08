@@ -1,18 +1,20 @@
-import { useContext } from 'react';
+import { useContext } from 'react';//allow us to establish connection between context and this comp
 
 import Card from '../ui/Card';
 import classes from './MeetupItem.module.css';
-import FavoritesContext from '../../store/favorites-context';
-
+import FavoritesContext from '../../store/favorites-context';//
+//i want when to favo button click to addd them to favo and update the text in button if it in faov or not
+// and if it in favo i want to change the boutton to remove
 function MeetupItem(props) {
-  const favoritesCtx = useContext(FavoritesContext);
+  const favoritesCtx = useContext(FavoritesContext);//to connect FavoritesContext
+//favoritesCtx return the obj 
 
-  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);
-
+  const itemIsFavorite = favoritesCtx.itemIsFavorite(props.id);// if item is faov or not
+//props.id i pass the id of the metup i need to know if favo or not 
   function toggleFavoriteStatusHandler() {
-    if (itemIsFavorite) {
+    if (itemIsFavorite) {//if it favo i need to remove it
       favoritesCtx.removeFavorite(props.id);
-    } else {
+    } else {//not faov yet i need to add it 
       favoritesCtx.addFavorite({
         id: props.id,
         title: props.title,
